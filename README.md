@@ -6,7 +6,7 @@ Overview
 
 The Hospital Management System is a web-based application designed to provide separate functionality for different hospital users. It uses role-based authentication and access control to ensure that administrators, doctors, receptionists, and patients can access the features relevant to their roles.
 
-The application was developed using PHP and MySQL and runs locally using the XAMPP development environment.
+The application was developed using PHP and MySQL/MariaDB and runs locally using the XAMPP development environment.
 
 Features
 
@@ -98,10 +98,10 @@ The system includes audit logging to record important application activities for
 User Roles
 
 Role| Main Responsibilities
-Admin| Manage doctors, patients, users, schedules, appointments, billing and audit logs
-Doctor| Manage visits, medical records, appointments and schedules
-Receptionist| Manage appointment requests, verification and reception-related operations
-Patient| Register, request appointments, view appointments, records and bills
+Admin| Manage doctors, patients, users, schedules, appointments, billing, and audit logs
+Doctor| Manage visits, medical records, appointments, and schedules
+Receptionist| Manage appointment requests, patient verification, and reception-related operations
+Patient| Register, request appointments, and view appointments, records, and bills
 
 Appointment Workflow
 
@@ -120,7 +120,9 @@ Receptionist
                          v
                     Appointment
 
-Patient verification follows a similar controlled workflow:
+Patient Verification Workflow
+
+Patient verification follows a controlled approval workflow:
 
 Patient Registration
         |
@@ -164,17 +166,45 @@ Additional Library
 
 - TCPDF for PDF generation
 
+Screenshots
+
+Login
+
+"Login Page" (screenshots/01-login.png)
+
+Admin Dashboard
+
+"Admin Dashboard" (screenshots/02-admin-dashboard.png)
+
+Doctor Management
+
+"Manage Doctors" (screenshots/03-manage-doctors.png)
+
+Patient Management
+
+"Manage Patients" (screenshots/04-manage-patients.png)
+
+Appointment Management
+
+"Appointments" (screenshots/05-appointments.png)
+
+Billing
+
+"Billing" (screenshots/06-billing.png)
+
 Database
 
-The project includes:
+The project includes the database SQL file:
 
 hospital_management.sql
 
-This SQL file can be imported into MySQL/MariaDB through phpMyAdmin to create the project database.
+This SQL file can be imported into MySQL/MariaDB through phpMyAdmin to create the project database and required tables.
 
 Project Structure
 
 hospital-management/
+│
+├── assets/
 │
 ├── config/
 │   ├── database.php
@@ -195,6 +225,16 @@ hospital-management/
 │   ├── export_patients_csv.php
 │   ├── export_patients_excel.php
 │   └── export_patients_pdf.php
+│
+├── models/
+│
+├── screenshots/
+│   ├── 01-login.png
+│   ├── 02-admin-dashboard.png
+│   ├── 03-manage-doctors.png
+│   ├── 04-manage-patients.png
+│   ├── 05-appointments.png
+│   └── 06-billing.png
 │
 ├── tcpdf/
 │   └── TCPDF library files
@@ -223,13 +263,13 @@ Install XAMPP with Apache and MySQL/MariaDB.
 
 2. Clone the Repository
 
-Place the project inside the XAMPP "htdocs" directory:
+Clone the repository and place the project inside the XAMPP "htdocs" directory:
 
 xampp/htdocs/hospital-management
 
 3. Start XAMPP
 
-Start:
+Start the following services from the XAMPP Control Panel:
 
 Apache
 MySQL
@@ -242,11 +282,9 @@ hospital_management
 
 5. Import the SQL File
 
-Import:
+Import the following file into the "hospital_management" database:
 
 hospital_management.sql
-
-into the "hospital_management" database.
 
 6. Configure Database Connection
 
@@ -261,11 +299,11 @@ The database configuration is located at:
 
 config/database.php
 
-Update the credentials if your local MySQL configuration is different.
+Update the credentials if your local MySQL/MariaDB configuration is different.
 
 7. Run the Application
 
-Open the application through:
+Open the following URL in your browser:
 
 http://localhost/hospital-management/
 
@@ -315,4 +353,4 @@ Akash Kumar
 
 MCA Graduate | Software Development & IT
 
-This project is part of my software development portfolio and demonstrates practical experience with PHP, MySQL, JavaScript and web application development.
+This project is part of my software development portfolio and demonstrates practical experience with PHP, MySQL/MariaDB, JavaScript, and web application development.
